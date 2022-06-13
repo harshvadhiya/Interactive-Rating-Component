@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="style.css">
+
+  <title>Frontend Mentor | Interactive rating component</title>
+</head>
+
+<body>
+  <div>
+    <div class="ty-div">
+      <img src="images/illustration-thank-you.svg" class="main-img" alt="">
+      <p class="paragraph">You selected _ out of 5</p>
+      <h2>Thank you!</h2>
+      <p class="feedback">We appreciate you taking the time to give a rating. If you ever need more support, don't
+        hesitate to get in touch!</p>
+    </div>
+    <div class="rating-div">
+      <div class="star">
+        <img src="images/icon-star.svg">
+      </div>
+      <h1>How did we do?</h1>
+      <p class="index-pg">
+        Please let us know how we did with your support request. All feedback is appreciated
+        to help us improve our offering!
+      </p>
+      <div class="rating">
+        <button id="1">1</button>
+        <button id="2">2</button>
+        <button id="3">3</button>
+        <button id="4">4</button>
+        <button id="5">5</button>
+      </div>
+      <button class="submit">submit</button>
+    </div>
+  </div>
+
+
+
+  <script>
+
+    const button = document.querySelectorAll(".rating button");
+    const submit = document.querySelector(".submit");
+    const thankYouParagraph = document.querySelector(".paragraph");
+    var selectedButton = "none";
+
+    function activeButton() {
+      button.forEach(itm =>
+        itm.removeAttribute("class"));
+      this.classList.add('active');
+      thankYouParagraph.innerHTML = "You selected " + this.id + " out of 5";
+    }
+
+    for (var i = 0; i <= 4; i++) {
+      button[i].addEventListener("click", activeButton);
+    }
+
+    submit.addEventListener("click", function () {
+      document.querySelector(".rating-div").style.display = "none";
+    });
+
+  </script>
+</body>
+
+</html>
